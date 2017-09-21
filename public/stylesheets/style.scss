@@ -1,0 +1,45 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+a {
+  color: #00B7FF;
+}
+
+%col {
+  display: inline-block;
+}
+
+$screen-widths: 0 678px 992px 1200px;
+$sizes: xs sm md lg;
+@for $size-index from 1 through 4 {
+  @if nth($screen-widths, $size-index) == 0 {
+    @for $i from 1 through 12 {
+      .col-#{nth($sizes, $size-index)}-#{$i} {
+        @extend %col;
+        width: #{($i* 100 /12)+'%'};
+      }
+    }
+  } @else {
+    @media (min-width: nth($screen-widths, $size-index)) {
+      @for $i from 1 through 12 {
+        .col-#{nth($sizes, $size-index)}-#{$i} {
+          width: #{($i* 100 /12)+'%'};
+        }
+      }
+    }
+  }
+  @for $i from 1 through 12 {
+    .col-#{nth($sizes, $size-index)}-#{$i} {
+      @extend %col;
+    }
+  }
+}
+
+$alignments: left center right;
+
+@each $alignment in $alignments {
+  .text-#{$alignment} {
+    text-align: #{$alignment};
+  }
+}
