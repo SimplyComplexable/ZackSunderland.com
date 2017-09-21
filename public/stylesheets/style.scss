@@ -1,14 +1,10 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-a {
-  color: #00B7FF;
-}
-
+/*
+***BOOTSTRAP CLASSES***
+local implementation of basic bootstrap classes used in the project
+ */
+//GRID SYSTEM
 %col {
-  display: inline-block;
-}
+  display: inline-block;}
 
 $screen-widths: 0 678px 992px 1200px;
 $sizes: xs sm md lg;
@@ -36,8 +32,8 @@ $sizes: xs sm md lg;
   }
 }
 
+//TEXT ALIGNMENTS
 $alignments: left center right;
-
 @each $alignment in $alignments {
   .text-#{$alignment} {
     text-align: #{$alignment};
